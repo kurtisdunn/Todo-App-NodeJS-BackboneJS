@@ -2,9 +2,7 @@
 
 One page Todo App using BackboneJS.
 
-Uses this HTML template
-
-[Todo App HTML5 Template](https://github.com/kurtisdunn/Todo-App-HTML5-Template "Todo App HTML5 Template")
+Uses this HTML template - [I'm an inline-style link with title](https://github.com/kurtisdunn/Todo-App-HTML5-Template "Todo App HTML5 Template")
 
 Libraries
 - NodeJS with Express
