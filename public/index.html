@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Todo App</title>
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	<style>
+	body{
+		font-family:'Open Sans', sans-serif;
+		background: #000000;
+		margin-top:50px;
+	}
+	h1{
+		font-size: 24px;
+		color: #6FC9FA;
+		padding:0;
+		margin:0;
+	}
+	h2{
+		font-size: 24px;
+		color: #FFFFFF;
+		padding:0;
+		margin:0;
+		}
+	p{
+		font-size: 22px;
+		color: #8B8B8B;
+		padding:0;
+		margin:0;
+	}
+	ul{
+		list-style:none;
+		margin:0;
+		padding-left:0px;
+	}
+	li{
+		width:400px;
+		min-height:120px;
+		background: #222222;
+		padding:10px;
+		margin:10px 0px 10px 0px;
+		border-radius:5px;
+		position:relative;
+	}
+	textarea:focus, input:focus{
+	    outline: 0;
+	}
+
+	::-webkit-input-placeholder {
+		font-size: 22px;
+		color: #41403E;
+		line-height: 30px;
+		
+	}
+
+	:-moz-placeholder {
+		font-size: 22px;
+		color: #41403E;
+		line-height: 30px;
+	}
+
+	::-moz-placeholder { 
+		font-size: 22px;
+		color: #41403E;
+		line-height: 30px;
+	}
+
+	:-ms-input-placeholder {  
+		font-size: 22px;
+		color: #41403E;
+		line-height: 30px;
+	}
+	.container{
+		width: 420px;
+		margin: 0 auto;
+	}
+	header{
+		position:relative;
+	}
+	.time{
+		font-size: 22px;
+		color: #8B8B8B;
+		position:absolute;
+		bottom:0;
+		right: 0;
+	}
+	.item-time{
+		position:absolute;
+		left: 10px;  
+		bottom: 10px;
+		font-size:18px;
+		color: #8B8B8B;
+		height:18px;
+	}
+	.actions{
+		transition: color 0.5s ease;
+		position:absolute;
+		right: 10px;  
+		bottom: 10px;
+		font-size:22px;
+		color: #8B8B8B;
+	}
+	.fa{
+		transition: color 0.5s ease;
+	}
+	.actions > .fa-trash-o:hover{
+		color: #F73F36;
+		cursor: pointer;
+	}
+	.new{
+		position:relative;
+	}
+	.new-item{
+		width:400px;
+		min-height:120px;
+		background: #222222;
+		padding:10px;
+		margin:10px 0px 10px 0px;
+		border-radius:5px;
+	}
+	.new > h1{
+		color: #52F171;
+	}
+	.new-item > input{
+		line-height: 30px;
+		width:96%;
+		background: #222222;
+		border:0;
+		line-height: 30px;
+				color: #FFFFFF;
+					font-size: 18px;
+	}
+	.new-item > textarea{
+		width:96%;
+		background: #222222;
+		resize:none;
+		font-size: 22px;
+		color: #8B8B8B;
+		line-height: 30px;
+		border:0;
+		font-size: 18px;
+	}
+	.new > button{
+		position:absolute;
+	  transition: color 0.5s ease;
+		transition: background 0.5s ease;
+		background: #41403E;
+		border-radius: 5px;
+		width:100px;
+		height:40px;
+		border:0;
+		font-size: 18px;
+		color: #FFFFFF;
+		line-height: 27px;
+		right: 0;
+	}
+	.new > button:hover, button:active{
+		background-color:#222222;
+		color:#6FC9FA;
+		outline:none;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Todos</h1>
+			<div class="time"></div>
+		</header>
+		<ul class="items">
+			<li class="item">
+				<h2 class="title">Stop having useless thoughts</h2>
+				<p class="comment">Go to the farmers market on the way home.</p>
+				<div class="item-time">12:20</div>
+				<div class="actions">
+					<i class="fa fa-trash-o remove"></i>
+				</div>
+			</li>
+			<li class="item">
+				<h2 class="title">Hire someone to milk cows</h2>
+				<p class="comment">Hire a qualified person to milk said cows.</p>
+				<div class="item-time">12:12</div>
+				<div class="actions">
+					<i class="fa fa-trash-o remove"></i>
+				</div>
+			</li>
+			<li class="item">
+				<h2 class="title">Buy some milk</h2>
+				<p class="comment">Buy some cows for milking.</p>
+				<div class="item-time">12:10</div>
+				<div class="actions">
+					<i class="fa fa-trash-o remove"></i>
+				</div>
+			</li>
+		</ul>
+		<div class="new">
+			<h1>New</h1>
+			<div class="new-item">
+				<input type="text" placeholder="Todo Title.." id="title">
+				<textarea placeholder="Todo Description.." id="desc" maxlength="256"></textarea>
+			</div>
+			<button class="add">Add</button>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+<script>
+	var date = new Date;
+	var hour = date.getHours();
+	var minutes = date.getMinutes();
+	var time = hour + ':' + minutes;
+	
+	var TodoApp = window.TodoApp = {
+		Views: {}
+	}
+	TodoApp.Views.ItemView = Backbone.View.extend({
+		initialize: function(){
+			this.render(time)
+		},
+		el:'body',
+		events: { 
+			'click .add': 'addItem',
+			'click .remove': 'removeItem'
+		},
+		addItem: function(){
+			var title = $('#title');
+			var desc = $('#desc');
+			var template = '<li class="item"><h2 class="title">' + title.val() + '</h2><p class="comment">' + desc.val() + '</p><div class="item-time"> ' + time + ' </div><div class="actions"><i class="fa fa-trash-o remove"></i></div></li>'
+			if (!title.val() && !desc.val()){ 
+				return
+			}else{
+				$('.items').prepend($(template).hide().fadeIn('slow'));
+				title.val(''); 
+				title.attr('placeholder');
+		 	  	desc.val('')
+				desc.attr('placeholder');
+			}
+		},
+		removeItem: function(e){
+			$(e.currentTarget).closest('.item').fadeOut(300, function() { $(this).remove(); });
+		},
+		render: function(options){
+			$('.time').append(options)
+		}
+
+	});
+	var ItemView = new TodoApp.Views.ItemView();
+</script>
+</html>
